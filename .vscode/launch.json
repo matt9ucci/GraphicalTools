@@ -5,6 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            // Ref: https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode-for-debugging-compiled-cmdlets
+            "name": "Launch a debugging session",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "pwsh",
+            "args": [
+                "-NoExit",
+                "-NoProfile",
+                "-Command",
+                "Import-Module ${workspaceFolder}/module/Microsoft.PowerShell.ConsoleGuiTools",
+            ],
+            "justMyCode": false,
+            "console": "integratedTerminal"
+        },
+        {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
